@@ -1,6 +1,7 @@
 // định nghĩa interface response của API
 export interface ApiResponse{
-    suceess: boolean;
+    sucess: boolean;
     data: any;
     message?: string;
+    error?: string;
 }
