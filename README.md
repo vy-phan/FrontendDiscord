@@ -1,54 +1,110 @@
-# React + TypeScript + Vite
+# Discord Clone - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ứng dụng chat giống Discord với nhiều tính năng, được xây dựng bằng các công nghệ web hiện đại.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Tính năng
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Công nghệ sử dụng
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+| Danh mục       | Công nghệ                          |
+|----------------|------------------------------------|
+| Frontend       | React 18, TypeScript               |
+| Công cụ build  | Vite                               |
+| Giao diện      | Tailwind CSS, ShadCN UI            |
+| Quản lý state  | React Context, Zustand             |
+| API Client     | Axios                              |
+
+
+# 📂 Cấu trúc dự án
+src/
+├── @types/               # Lưu trữ định nghĩa kiểu dữ liệu trả về từ API
+│   └── api.ts            # Định nghĩa kiểu dữ liệu trả về từ API
+│
+├── assets/               # Lưu trữ ảnh, icon, font,...
+│
+├── components/           # Chứa các thành phần UI để tái sử dụng
+│   ├── ui/               # Lưu trữ các thư viện của Shadcn/ui
+│   ├── common/           # Các thành phần UI chung
+│        └── home/         # Component của trang Home
+│
+├── constants/            # Lưu trữ các hằng số
+│   ├── path.ts           # Định nghĩa các API URL
+│
+├── context/              # Lưu trữ các context để quản lý state
+│
+├── hooks/                # Custom hooks để tái sử dụng logic gọi API
+│   └── useAuth.ts        # Auth hook
+│
+├── lib/                  # Utilities (không cần quan tâm)
+│   └── utils.ts          # Helper functions
+│
+├── pages/                # Các trang web
+│   └── Home.tsx          # Trang Home ví dụ
+│
+├── services/i18n/        # Dịch đa ngôn ngữ với i18n
+│   ├── vi.json           # Dịch tiếng Việt
+│   └── en.json           # Dịch tiếng Anh
+│
+├── utils/                # Các file tiện ích
+│   └── helper.ts         # Các hàm tiện ích
+│
+├── App.tsx               # Quy định và setup router với react-router-dom
+│
+├── main.tsx              # File chính khi chạy biên dịch (không cần quan tâm)
+│
+└── index.css             # Quy định CSS toàn bộ web
+    
+
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm or yarn
+
+
+
+### Yêu cầu
+
+- Node.js (khuyến nghị v18+)
+- npm hoặc yarn
+
+### Cài đặt
+
+1. Clone repository
+2. Cài đặt dependencies:
+```bash
+npm install
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+3. Khởi chạy server phát triển:
+```bash
+npm run dev
 ```
+## Scripts có sẵn
+- dev : Khởi chạy server phát triển
+- build : Build cho production
+- preview : Xem trước bản production
+- lint : Chạy ESLint
+- format : Định dạng code với Prettier
+
+## ⚙ Cấu hình
+- vite.config.ts - Cấu hình Vite
+- tailwind.config.js - Cấu hình Tailwind CSS
+- tsconfig.json - Cấu hình TypeScript
+- components.json - Cấu hình ShadCN UI
+
+
+## Đóng góp
+Vui lòng tuân thủ chuẩn code của dự án và gửi pull request tới nhánh develop.
+
+README này cung cấp:
+
+1. Giải thích cấu trúc dự án
+2. Thông tin công nghệ
+3. Hướng dẫn cài đặt
+4. Lệnh phát triển
+5. Hướng dẫn đóng góp
+
